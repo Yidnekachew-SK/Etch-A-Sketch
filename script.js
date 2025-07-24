@@ -15,20 +15,13 @@ const randomColor = function(){
 	return `rgb(${red},${green},${blue})`;
 }
 
-const mouseOver = function(event){
+const clickGrid = function(event){
 	let event1 = event.target;
-	event1.classList.toggle("hover");
 	event1.style.backgroundColor = randomColor();
 }
 
-const mouseOut = function(event){
-	let event2 = event.target;
-	event2.classList.toggle("hover");
-}
-
 const squares = document.querySelectorAll(".square");
-squares.forEach(div => div.addEventListener("mouseover", mouseOver));
-squares.forEach(div => div.addEventListener("mouseout", mouseOut));
+squares.forEach(div => div.addEventListener("click", clickGrid));
 
 let userInput;
 const numOfSides = function(){
@@ -36,7 +29,7 @@ const numOfSides = function(){
 		userInput = prompt("Enter the no of squares per side(should be < 100): ");
 	} while(!(userInput >= 0 && userInput < 100));
 
-	const container2 = document.querySelector("div");
+	const container2 = document.querySelector(".container");
 	container2.remove();
 
 	const mainContainer = document.querySelector("main");
@@ -53,11 +46,15 @@ const numOfSides = function(){
 	divs.style.width = 100/totalSquares + "%";
 	divs.style.height = 100/totalSquares + "%";
 	newContainer.append(divs);
-	divs.addEventListener("mouseover", mouseOver);
-	divs.addEventListener("mouseout", mouseOut);
+	divs.addEventListener("click", clickGrid);
 	newDivs++;
 }
 }
 
-const button = document.querySelector("button");
+const button = document.querySelector(".changeSize");
 button.addEventListener("click", numOfSides);
+
+const reset = document.querySelector(".reset");
+reset.addEventListener("click", () => {
+	squares.forEach(square => square.style.backgroundColor = "white")
+})

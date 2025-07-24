@@ -2,31 +2,55 @@
 	box-sizing: border-box;
 }
 
-main{
-	margin-top: 10px;
+body{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
 
 h1{
 	margin: 0;
-	font-size: 50px;
+	font-size: 40px;
 	padding: 5px 5px;
 	text-align: center;
 	border-bottom: 2px solid gray;
+}
+
+main{
+	align-self: center;
+	margin-top: 10px;
+	border: 3px solid rgb(112 9 9);
+	border-radius: 15px;
+	background-color:rgb(143 63 63);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#buttons{
+	padding: 2px 2px;
+	margin: 5px 4px;
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 button{
 	margin: 10px 10px;
 	padding: 5px 5px;
 	font-size: 14px;
+	color: rgb(255 235 59);
+	background-color: rgb(109 56 67);
+	border: 2px solid black;
+	border-radius: 5px;
 }
 
 .container{
-	width: 600px;
-	height: 600px;
-	border: 1px solid red;
+	width: 580px;
+	height: 580px;
+	border: 10px solid rgb(100 12 42);
+	border-radius: 15px;
 	margin: 10px 20px;
 	display: flex;
 	justify-content: center;
@@ -36,7 +60,8 @@ button{
 .square{
 	height: 6,25%;
 	width: 6.25%;
-	border: 1px solid green;
+	border: 1px solid darkgreen;
+	background-color: white;
 }
 
 .newSize{

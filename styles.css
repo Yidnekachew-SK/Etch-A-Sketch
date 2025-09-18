@@ -64,10 +64,6 @@ button{
 	background-color: white;
 }
 
-.newSize{
-	border: 1px solid green;
-}
-
 .hover{
 	background-color: lightgray;
 	opacity: 90%;

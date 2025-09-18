@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 let numOfDivs = 0;
+
 while(numOfDivs < 256){
 	const divs = document.createElement("div");
 	divs.className = "square";
@@ -41,14 +42,14 @@ const numOfSides = function(){
 
 	let newDivs = 0;
 	while(newDivs < (totalSquares ** 2)){
-	const divs = document.createElement("div");
-	divs.className = "newSize";
-	divs.style.width = 100/totalSquares + "%";
-	divs.style.height = 100/totalSquares + "%";
-	newContainer.append(divs);
-	divs.addEventListener("click", clickGrid);
-	newDivs++;
-}
+		const divs = document.createElement("div");
+		divs.className = "square";
+		divs.style.width = 100/totalSquares + "%";
+		divs.style.height = 100/totalSquares + "%";
+		newContainer.append(divs);
+		divs.addEventListener("click", clickGrid);
+		newDivs++;
+	}
 }
 
 const button = document.querySelector(".changeSize");
@@ -56,5 +57,6 @@ button.addEventListener("click", numOfSides);
 
 const reset = document.querySelector(".reset");
 reset.addEventListener("click", () => {
-	squares.forEach(square => square.style.backgroundColor = "white")
+	const squareDiv = document.querySelectorAll(".square");
+	squareDiv.forEach(square => square.style.backgroundColor = "white");
 })

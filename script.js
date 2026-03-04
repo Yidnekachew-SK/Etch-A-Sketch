@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 let numOfDivs = 0;
+let choosenColor = null;
 
 while(numOfDivs < 256){
 	const divs = document.createElement("div");
@@ -16,13 +17,27 @@ const randomColor = function(){
 	return `rgb(${red},${green},${blue})`;
 }
 
-const clickGrid = function(event){
-	let event1 = event.target;
-	event1.style.backgroundColor = randomColor();
+const chooseColor = function(event){
+	let cell = event.target;
+	if (choosenColor === null) {
+		cell.style.backgroundColor = randomColor();
+	} else {
+		cell.style.backgroundColor = choosenColor;
+	}
 }
 
+const colorInput = document.querySelector(".colorChooser");
+colorInput.addEventListener("input", (event) => {
+	choosenColor = event.target.value;
+});
+
+const randomColorButton = document.querySelector(".randomColor");
+randomColorButton.addEventListener("click", () => {
+	choosenColor = null;
+})
+
 const squares = document.querySelectorAll(".square");
-squares.forEach(div => div.addEventListener("click", clickGrid));
+squares.forEach(div => div.addEventListener("click", chooseColor));
 
 let userInput;
 const numOfSides = function(){
@@ -33,7 +48,7 @@ const numOfSides = function(){
 	const container2 = document.querySelector(".container");
 	container2.remove();
 
-	const mainContainer = document.querySelector("main");
+	const mainContainer = document.querySelector(".main-container");
 	const newContainer = document.createElement("div");
 	newContainer.className = "container";
 	mainContainer.append(newContainer);
@@ -47,7 +62,7 @@ const numOfSides = function(){
 		divs.style.width = 100/totalSquares + "%";
 		divs.style.height = 100/totalSquares + "%";
 		newContainer.append(divs);
-		divs.addEventListener("click", clickGrid);
+		divs.addEventListener("click", chooseColor);
 		newDivs++;
 	}
 }

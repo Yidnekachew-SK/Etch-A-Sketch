@@ -11,12 +11,20 @@
 	<h1>Etch-A-Sketch</h1>
 </header>
 <main>
-	<div id="buttons">
-		<button class="changeSize">Change grid size</button>
-		<button class="reset">Reset</button>
-	</div>
+	<div class="main-container">
+		<div id="buttons">
+			<div class="color-choice">
+				<label for="color">Color:</label>
+				<input type="color" name="color" class="colorChooser">	
+			</div>
+			<button class="changeSize">Change grid size</button>
+			<button class="randomColor">Random color</button>
+			<button class="reset">Reset</button>
+		
+		</div>
 	
-	<div class="container"> </div>
+		<div class="container"> </div>
+	</div>
 </main>
 
 <script src="script.js"> </script>

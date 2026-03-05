@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 let numOfDivs = 0;
 let choosenColor = null;
+let mode = "click";
 
 while(numOfDivs < 256){
 	const divs = document.createElement("div");
@@ -25,19 +26,6 @@ const chooseColor = function(event){
 		cell.style.backgroundColor = choosenColor;
 	}
 }
-
-const colorInput = document.querySelector(".colorChooser");
-colorInput.addEventListener("input", (event) => {
-	choosenColor = event.target.value;
-});
-
-const randomColorButton = document.querySelector(".randomColor");
-randomColorButton.addEventListener("click", () => {
-	choosenColor = null;
-})
-
-const squares = document.querySelectorAll(".square");
-squares.forEach(div => div.addEventListener("click", chooseColor));
 
 let userInput;
 const numOfSides = function(){
@@ -66,6 +54,40 @@ const numOfSides = function(){
 		newDivs++;
 	}
 }
+
+
+const colorInput = document.querySelector(".colorChooser");
+colorInput.addEventListener("input", (event) => {
+	choosenColor = event.target.value;
+});
+
+const randomColorButton = document.querySelector(".randomColor");
+randomColorButton.addEventListener("click", () => {
+	choosenColor = null;
+})
+
+const squares = document.querySelectorAll(".square");
+squares.forEach(div => div.addEventListener("click", chooseColor));
+
+const modeButton = document.querySelector(".changeMode");
+modeButton.addEventListener("click", (event) => {
+	if (mode === "click") {
+		event.target.textContent = "Click mode";
+		squares.forEach(div => {
+			div.removeEventListener("click", chooseColor);
+			div.addEventListener("mouseover", chooseColor);
+		});
+		mode = "hover";
+	} else if (mode === "hover") {
+		event.target.textContent = "Hover mode";
+		squares.forEach(div => {
+			div.removeEventListener("mouseover", chooseColor);
+			div.addEventListener("click", chooseColor)
+		});
+		mode = "click";
+	}
+});
+
 
 const button = document.querySelector(".changeSize");
 button.addEventListener("click", numOfSides);

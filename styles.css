@@ -2,27 +2,27 @@
 	box-sizing: border-box;
 }
 
-body{
+main{
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 30px;
 }
 
 h1{
 	margin: 0;
-	font-size: 40px;
+	font-size: 35px;
 	padding: 5px 5px;
 	text-align: center;
 	border-bottom: 2px solid gray;
 }
 
-main{
+.main-container{
 	align-self: center;
 	margin-top: 10px;
-	border: 3px solid rgb(112 9 9);
-	border-radius: 15px;
-	background-color:rgb(143 63 63);
+	border: 3px solid rgb(112, 9, 9);
+	border-radius: 10px;
+	background-color:rgb(143, 63, 63);
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
@@ -36,21 +36,33 @@ main{
 	justify-content: center;
 }
 
+.color-choice{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+label{
+	color: rgb(255, 235, 59);
+}
+
 button{
 	margin: 10px 10px;
 	padding: 5px 5px;
 	font-size: 14px;
 	color: rgb(255 235 59);
-	background-color: rgb(109 56 67);
+	background-color: rgb(97, 20, 36);
 	border: 2px solid black;
 	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray;
 }
 
 .container{
-	width: 580px;
-	height: 580px;
-	border: 10px solid rgb(100 12 42);
-	border-radius: 15px;
+	width: 500px;
+	height: 500px;
+	border: 10px solid rgb(100, 12, 42);
+	border-radius: 5px;
 	margin: 10px 20px;
 	display: flex;
 	justify-content: center;
@@ -58,13 +70,8 @@ button{
 }
 
 .square{
-	height: 6,25%;
+	height: 6.25%;
 	width: 6.25%;
 	border: 1px solid darkgreen;
 	background-color: white;
-}
-
-.hover{
-	background-color: lightgray;
-	opacity: 90%;
 }
